@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        code {
+            background-color: teal;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+    </style>
+    <title>Git and GitHub</title>
+    <p><a href="https://academind.com/tutorials/git-the-basics/">Git the Basics, by Manuel Lorenz</a></p>
+    <p><a href="https://www.youtube.com/watch?v=_OZVJpLHUaI">Git tutorial for beginners, video by Manuel Lorenz</a></p>
+    <p><a href="https://academind.com/tutorials/github-the-basics/">GitHub the Basics, by Manuel Lorenz</a></p>
+    <p><a href="https://www.youtube.com/watch?v=mVnZVw4KJnc">GitHub tutorial for beginners, video by Manuel Lorenz</a></p>
+</head>
+<body>
+    <div>
+        <h1>Git vs Github</h1>
+        <p>These terms can be confusing, especially for beginners. Git is a version control system which you can download to your computer, GitHub is a hosting & collaboration provider which hosts your Git projects. It is a web based solution allowing you to upload your Git Repositories to it. Uploading your code from your local Git environment to GitHub makes your code available to anybody who wants to contribute to your project.</p>
+        <hr>
+    </div>
+    <div>
+        <h1>Repositories, Branches & Commits</h1>
+        <img src="../img/git-repo.jpg" alt="Git">
+        <p>A Repository is the location where your code is stored, so a folder on your machine containing your project code. After turning this folder into a Git Repository, Git manages the project code version history.</p>
+        <p>The code is not directly stored in the Repository though. Inside our Repository we have “subfolders”, so-called Branches. After we added the first code to our Repository, a default “master” Branch is created. We are not limited to one Branch though, a Repository typically contains multiple Branches.</p>
+        <p>A Branch contains different versions of our code, our Commits. Each Commit is a snapshot of a specific version of the code.</p>
+        <hr>
+    </div>
+    <div>
+        <h1>Git main commands</h1>
+        <h2>git init</h2>
+        <code>$git init</code>
+        <p>It will turn our project into a project managed by Git.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>git status</h2>
+        <code>$git status</code>
+        <p>Provides information about the current state. We have untracked files, meaning that Git is aware of the files being located in our folder but we need to explicitly tell Git to track these files (i.e. to check if the files changed) and to save any changes in a new Commit.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>git add</h2>
+        <code>$git add .</code><br>
+        <code>$git add filename</code>
+        <p>Tracking files either works with git add filename (“filename” should be the name of the file you want to track) or git add . which will track changes in all files inside the Repository.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>git commit</h2>
+        <code>$git commit -m "short explanation about changes made"</code>
+        <p>As a last step we need to commit or save the current code version in our Repository. git commit -m adds the latest version of the code to our Branch, -m should provide a meaningful Commit message.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>Create new Branch</h2>
+        <code>$git checkout -b branch-name</code>
+        <p>Create a new Branch named branch-name.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>Merge Branches</h2>
+        <code>$git merge branch-name</code>
+        <p>Merge two Branches, branch-name is the Branch you merge with the Branch you’re currently working in.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>git branch</h2>
+        <code>$git branch</code>
+        <p>lists all Branches in our Repository. The master Branch was automatically created with our first Commit.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>git log</h2>
+        <code>$git log</code>
+        <p>It will display all Commits inside our Branch.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>Delete a Branch</h2>
+        <code>$git branch -D branch-name</code>
+        <p>Delete the Branch named branch-name.</p>
+        <hr>
+    </div>
+    <h2>Head</h2>
+    <p>Each Commit contains a unique ID, the author, the date and the Commit message (this -m "your message" part). “HEAD” just points to the latest Commit of our current Branch. Each Commit is not an updated copy of the previous Commit. After the first Commit, Git just tracks changes for each following Commit. So with git add ., Git checks our files for any changes, git commit saves these changes in a new Commit then.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>git checkout</h2>
+        <code>$git checkout Commit ID</code><br>
+        <code>$git checkout branch-name</code>
+        <p>It allows us to select a specific Branch or a specific Commit. Commit ID should be the ID of the Commit you want to checkout, this can be seen with $git log.</p>
+        <code>$git checkout -- .</code>
+        <p>Jump back to the last Commit and remove any untracked changes.</p>
+        <hr>
+    </div>
+    <div>
+        <h2>Select new head</h2>
+        <code>$git reset --hard</code>
+        <p>Turn the selected Commit into the new HEAD. Copy the ID of the Commit you want to jump back to (NOT the ID of the Commit you want to delete) and use git reset --hard ID (ID should be the ID of the Commit). Changes can not be undone!</p>
+        <hr>
+    </div>
+    <div>
+  <h1>Using GitHub</h1>
+  <p>How to upload code from our local Git Repository to the cloud into a remote Repository?</p>
+</div>
+<hr>
+</div>
+<div>
+    <h2>git remote add origin URL</h2>
+    <code>$git remote add origin URL</code>
+    <p>Establishes a connection between the local Git Repository you’re currently working on and the remote Repository (URL should be the URL of this Repository).</p>
+    <hr>
+</div>
+
+<div>
+    <h2>git remote -v</h2>
+    <code>$git remote -v</code>
+    <p>Displays all remote Respositories your local Repository is connected to (“-v” also shows the URL of the remote Repository).</p>
+    <hr>
+</div>
+
+<div>
+    <h2>git push -u origin master</h2>
+    <code>$git push -u origin master</code>
+    <p>Upload code from your local Branch to a remote Branch in the remote Repository (“origin” is the name of the remote Repository, “master” the name of the remote Branch).</p>
+    <hr>
+</div>
+
+<div>
+    <h2>git clone</h2>
+    <code>$git clone</code>
+    <p>Copy or clone an entire remote Repository to your machine. Automatically creates a remote tracking Branch (see below).</p>
+    <hr>
+</div>
+<div>
+    <h2>git push and git pull</h2>
+    <code>$git push</code><br>
+    <code>$git pull</code>
+    <p>Upload code to or download code from a remote Repository. Only possible after a remote tracking Branch was created.</p>
+    <p>*“remote tracking Branch”: Branch “in between” the local Branch and the remote Branch. Ensures that code is pushed or pulled between the right Repositories and Branches. Automatically created when using “git clone” or “git push”/“git pull” explicitly (i.e. with information regarding the name of the remote Repository and Branch).</p>
+    <hr>
+</div>
+<div>
+    <h2>git fetch</h2>
+    <code>$git fetch</code>
+    <p>Updates the remote tracking Branch with the code from the remote Branch.</p>
+    <hr>
+</div>
+<div>
+    <h2>git remote rm origin</h2>
+    <code>$git remote rm origin</code>
+    <p>Removes the connection between the local Repository and the remote Repository, “origin” is the remote Repository`s name.</p>
+    <hr>
+</div>
+
+
+  
+
+    <footer style="text-align: center; margin-top: 5rem">
+        Copyright 2021 &#169 A.Simsel
+    </footer>
+    
+   
+</body>
+</html>
